@@ -6,7 +6,7 @@ from django.shortcuts import render
 import datetime
 from core.models import User
 from func import functions as fnc
-
+import map.forms
 
 
 class WelcomeView(View):
@@ -48,3 +48,5 @@ class WelcomeView(View):
 
 
         return context
+
+

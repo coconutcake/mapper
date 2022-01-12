@@ -43,3 +43,47 @@ class MapAdmin(admin.ModelAdmin):
     ) 
 
 admin.site.register(models.Map,MapAdmin)
+
+class AreaAdmin(admin.ModelAdmin):
+    ordering = ['id']
+    list_display = ['name', 'description', 'map_fk', 'id']
+    fieldsets = (
+
+        (_('Name'),{'fields': 
+            ('name',)}),
+        (_('Description'),{"fields": 
+            ('description',)}),
+        (_('Relations'),{"fields": 
+            ('map_fk',)})
+    )
+    add_fieldsets = (
+        (None,{
+            'classes': ('wide',),
+            'fields': ('name','description')
+        }),
+    ) 
+
+admin.site.register(models.Area,AreaAdmin)
+
+class FieldAdmin(admin.ModelAdmin):
+    ordering = ['id']
+    list_display = ['name', 'description', 'x','y','area_fk', 'container_fk','id']
+    fieldsets = (
+
+        (_('Name'),{'fields': 
+            ('name',)}),
+        (_('Description'),{"fields": 
+            ('description',)}),
+        (_('Position'),{'fields': 
+            ('x','y',)}),
+        (_('Relations'),{"fields": 
+            ('area_fk','container_fk',)})
+    )
+    add_fieldsets = (
+        (None,{
+            'classes': ('wide',),
+            'fields': ('name','description')
+        }),
+    ) 
+
+admin.site.register(models.Field,FieldAdmin)

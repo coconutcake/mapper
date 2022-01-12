@@ -42,5 +42,7 @@ urlpatterns = [
 
    #core urls
    path('core/', include('core.urls')),
+   #map urls
+   path('map/', include('map.urls')),
     
 ]
